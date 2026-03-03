@@ -1,0 +1,98 @@
+🎯 2️⃣ Les styles qui fonctionnent
+✅ Layout (Flexbox)
+
+flex
+
+flexDirection
+
+justifyContent
+
+alignItems
+
+alignSelf
+
+flexWrap
+
+gap (support récent, selon version)
+
+✅ Dimensions
+
+width
+
+height
+
+minWidth
+
+maxWidth
+
+% (ex: "50%")
+
+✅ Margin / Padding
+
+margin
+
+marginTop
+
+marginHorizontal
+
+padding
+
+paddingVertical
+
+✅ Border
+
+borderWidth
+
+borderColor
+
+borderRadius
+
+✅ Background
+
+backgroundColor
+
+✅ Text styles (uniquement sur <Text>)
+
+fontSize
+
+fontWeight
+
+color
+
+textAlign
+
+lineHeight
+
+✅ Positionnement
+
+position: "absolute"
+
+top
+
+left
+
+right
+
+bottom
+
+zIndex
+
+❌ Ce qui NE fonctionne PAS
+
+Ces propriétés CSS web n’existent pas :
+
+display: grid
+
+float
+
+box-shadow (mais shadowColor etc. existent)
+
+::before
+
+hover
+
+cursor
+
+rem, em
+
+vh, vw
