@@ -1,8 +1,14 @@
 import LabelInput from "@/components/LabelInput"
+import CrudButton from "@/pieces/crudButton"
 import { Etudiant, useEtudiantStore } from "@/store/etudiants"
+import { border } from "@/styles/border"
+import { col1, col2, col4 } from "@/styles/colors"
 import { direction, display, gap } from "@/styles/display"
+import { size } from "@/styles/size"
+import { padding } from "@/styles/spacing"
+import { router } from "expo-router"
 import { useState } from "react"
-import { Button, Text, View } from "react-native"
+import { Text, View } from "react-native"
 const Add = () => {
   const { etudiants, AjouterNouvEtudiant } = useEtudiantStore()
   const [newEtudiant, setNewEtudiant] = useState<Etudiant>({ nom: 'Noona', prenom: 'Arvie', genre: 'F', adresse: 'Fianara', email: 'ndn@jnj.sf' })
@@ -11,8 +17,27 @@ const Add = () => {
     setNewEtudiant({ nom: '', prenom: '', genre: '', adresse: '', email: '' })
   }
 
-  return <View>
-    <View><Text>Ajouter de nouveau etudiant</Text></View>
+  return <View
+    style={[
+      padding({ value1: 18 }),
+      display['flex'],
+      direction['column'],
+      gap(20),
+      border({width: 1, color: col1, radius: 15}),
+      size({ height: `${100}%` }),
+      {
+        backgroundColor: col4
+      }
+    ]}>
+    <View>
+      <Text style={{
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: '900',
+        color: col2,
+        fontFamily: 'ubuntu'
+      }}>Ajouter de nouveau etudiant</Text>
+    </View>
     <View
       style={[
         display['flex'],
@@ -47,12 +72,17 @@ const Add = () => {
       />
     </View>
 
-    <Button title="Ajouter" onPress={AddNouvEtudiant} />
-    <View>
-      {etudiants.map(e => (
-        <Text key={e.id}>{e.id} - {e.nom + " " + e.prenom} - {e.adresse} - {e.email} - </Text>
-      ))}
-    </View>
+    <CrudButton
+      variant={'principal'}
+      onPress={AddNouvEtudiant}
+      text="Ajouter cet etudiant"
+    />
+
+    <CrudButton
+      variant={'tertiary'}
+      onPress={() => router.push('/')}
+      text="Quitter"
+    />
   </View>
 }
 

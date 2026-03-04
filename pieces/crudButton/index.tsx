@@ -23,7 +23,7 @@ const CrudButton = (props: buttonInterface) => {
     style={[styles.button, ...btnStyles, props.style,]}
   >
     {props.text ?
-      <Text style={props.variant == 'tertiary' ? { color: col2 } : { color: col1 }}>{props.text}</Text>
+      <Text style={props.variant == 'tertiary' ? { color: col2 , fontFamily:'ubuntu'} : { color: col1, fontFamily:'ubuntu' }}>{props.text}</Text>
       :
       <>
         {props.children}
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     shadowColor: col2,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
-    shadowRadius: 1
+    shadowRadius: 1,
   },
   primary: {
     backgroundColor: col2,
