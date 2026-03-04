@@ -36,28 +36,28 @@ const Edit = () => {
     >
       <LabelInput
         label='Nom'
-        value={etudiant?.nom}
-        setValue={(value: string) => setModifEtud(prev => ({ ...(prev || { nom: '', prenom: '', genre: '', adresse: '', email: '' }), nom: value }))}
+        value={modifEtud.nom}
+        setValue={(value: string) => setModifEtud(prev => ({ ...prev, nom: value }))}
       />
       <LabelInput
         label='Prenom'
-        value={etudiant?.prenom}
-        setValue={(value: string) => setModifEtud(prev => ({ ...(prev || { nom: '', prenom: '', genre: '', adresse: '', email: '' }), prenom: value }))}
+        value={modifEtud.prenom}
+        setValue={(value: string) => setModifEtud(prev => ({ ...prev, prenom: value }))}
       />
       <LabelInput
         label='Genre'
-        value={etudiant?.genre}
-        setValue={(value: string) => setModifEtud(prev => ({ ...(prev || { nom: '', prenom: '', genre: '', adresse: '', email: '' }), genre: value }))}
+        value={modifEtud.genre}
+        setValue={(value: string) => setModifEtud(prev => ({ ...prev, genre: value }))}
       />
       <LabelInput
         label='Adresse'
-        value={etudiant?.adresse}
-        setValue={(value: string) => setModifEtud(prev => ({ ...(prev || { nom: '', prenom: '', genre: '', adresse: '', email: '' }), adresse: value }))}
+        value={modifEtud.adresse}
+        setValue={(value: string) => setModifEtud(prev => ({ ...prev, adresse: value }))}
       />
       <LabelInput
         label='Email'
-        value={etudiant?.email}
-        setValue={(value: string) => setModifEtud(prev => ({ ...(prev || { nom: '', prenom: '', genre: '', adresse: '', email: '' }), email: value }))}
+        value={modifEtud.email}
+        setValue={(value: string) => setModifEtud(prev => ({ ...prev, email: value }))}
       />
     </View>
 

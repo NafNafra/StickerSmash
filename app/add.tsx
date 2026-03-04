@@ -1,30 +1,22 @@
 import LabelInput from "@/components/LabelInput"
 import { Etudiant, useEtudiantStore } from "@/store/etudiants"
 import { direction, display, gap } from "@/styles/display"
-import { padding } from "@/styles/spacing"
 import { useState } from "react"
 import { Button, Text, View } from "react-native"
 const Add = () => {
-  const { etudiants, AjouterNouvEtudiant} = useEtudiantStore()
-  const [newEtudiant, setNewEtudiant] = useState<Etudiant>({ nom: '', prenom: '', genre: '', adresse: '', email: '' })
+  const { etudiants, AjouterNouvEtudiant } = useEtudiantStore()
+  const [newEtudiant, setNewEtudiant] = useState<Etudiant>({ nom: 'Noona', prenom: 'Arvie', genre: 'F', adresse: 'Fianara', email: 'ndn@jnj.sf' })
   const AddNouvEtudiant = () => {
     AjouterNouvEtudiant(newEtudiant)
     setNewEtudiant({ nom: '', prenom: '', genre: '', adresse: '', email: '' })
   }
 
-  return <View
-    style={[
-      padding({value1:20}),
-      display['flex'],
-      direction['column'],
-      gap(20),
-    ]}
-  >
+  return <View>
     <View><Text>Ajouter de nouveau etudiant</Text></View>
     <View
       style={[
-        display['flex'], 
-        direction['column'], 
+        display['flex'],
+        direction['column'],
         gap(10)
       ]}
     >
@@ -57,7 +49,7 @@ const Add = () => {
 
     <Button title="Ajouter" onPress={AddNouvEtudiant} />
     <View>
-      {etudiants.map(e =>(
+      {etudiants.map(e => (
         <Text key={e.id}>{e.id} - {e.nom + " " + e.prenom} - {e.adresse} - {e.email} - </Text>
       ))}
     </View>
