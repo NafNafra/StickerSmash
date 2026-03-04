@@ -1,5 +1,5 @@
 import { border } from '@/styles/border'
-import { direction, display, justify } from '@/styles/display'
+import { direction, display, flex, justify } from '@/styles/display'
 import { padding } from '@/styles/spacing'
 import React from "react"
 import { Text, TextInput, View } from "react-native"
@@ -18,7 +18,7 @@ const LabelInput = (props: LabelInputProps) => {
         alignItems: 'center',
       },
     ]}>
-      <Text style={[]}>{props.label}: </Text>
+      <Text style={[flex(1)]}>{props.label}: </Text>
       <TextInput
         value={props.value}
         onChangeText={props.setValue}
@@ -29,7 +29,7 @@ const LabelInput = (props: LabelInputProps) => {
             radius: 2
           }),
           padding({ value1: 5 }),
-
+          flex(1)
 
         ]}
         placeholder={`Enter ${props.label.toLowerCase()}`}
