@@ -16,16 +16,16 @@ export default function Index() {
         {
           backgroundColor: col4
         }
-      ]}
+      ]} 
     >
       <View
-        style={[display['flex'], direction['row'], justify['space-between'], {alignItems:'center',marginVertical: 20}]}
+        style={[display['flex'], direction['row'], justify['space-between'], { alignItems: 'center', marginVertical: 20 }]}
       >
         <Text style={{
           fontSize: 25,
           textAlign: 'center',
-          fontWeight:'900',
-          color:col2,
+          fontWeight: '900',
+          color: col2,
         }}>Gestions des etudiants
         </Text>
         <CrudButton
@@ -42,18 +42,37 @@ export default function Index() {
 
 
       {etudiants.length > 0 ?
-        <FlatList
-          data={etudiants}
-          style={[display['flex'], direction['column'], gap(10)]}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <ItemComp
-              item={item}
-            />
-          )}
-        />
+        <>
+          <FlatList
+            data={etudiants}
+            style={[display['flex'], direction['column'], gap(10)]}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <ItemComp
+                item={item}
+              />
+            )}
+          />
+          <View>
+            <View style={[display['flex'], direction['row']]}>
+              <Text style={{ maxWidth: '20%' , width:'100%' , borderColor:'black', borderWidth:1}}>id</Text>
+              <Text style={{ maxWidth: '40%' , width:'100%' , borderColor:'black', borderWidth:1 }}>nom prenoms</Text>
+              <Text style={{ maxWidth: '20%' , width:'100%' , borderColor:'black', borderWidth:1 }}>adresse</Text>
+              <Text style={{ maxWidth: '20%' , width:'100%' , borderColor:'black', borderWidth:1 }}>email</Text>
+            </View>
+            {etudiants.map((item, index) => (
+              <View key={index}  style={[display['flex'], direction['row']]}>
+                <Text style={{ maxWidth: '20%' , width:'100%' , borderColor:'black', borderWidth:1}}>{item.id}</Text>
+                <Text style={{ maxWidth: '40%' , width:'100%' , borderColor:'black', borderWidth:1 }}>{item.nom + " " + item.prenom}</Text>
+                <Text style={{ maxWidth: '20%' , width:'100%' , borderColor:'black', borderWidth:1 }}>{item.adresse}</Text>
+                <Text style={{ maxWidth: '20%' , width:'100%' , borderColor:'black', borderWidth:1 }}>{item.email}</Text>
+              </View>
+            ))}
+
+          </View>
+        </>
         :
-        <View><Text style={{ textAlign: 'center' }}>No data</Text></View>
+        <View><Text className='bg-red-500' style={{ textAlign: 'center' }}>No data</Text></View>
       }
     </View>
   );
